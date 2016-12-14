@@ -1,0 +1,199 @@
+﻿@import url("base.css");
+
+
+
+		body {
+			font-family: arial;
+			font-size: 10pt;
+		}
+
+#howToUse, #minsumm {
+    margin-top: 20px;
+	font-weight: 400;
+	font-size: 25px;
+	padding: 10px;
+	margin-left: 20px;
+	position: relative;
+	text-align: left;
+}
+
+#changeInfo {
+	margin-top: 20px;
+}
+
+#attention {
+	font-weight: 400;
+	margin-top: 20px;
+	font-size: 25px;
+	padding: 5px 15px 15px 15px;
+	text-align: left;
+
+}
+
+#attentionPic {
+	position: relative;
+	width: 80px;
+	text-align: center;
+	font-weight: 900;
+	font-size: 70px;
+	color: #000000;
+	margin: 20px 0px 0px 30px;
+	padding: 15px 10px 10px 10px;
+	background-color: #fbb434;
+	behavior: url(PIE.htc);
+	border-radius: 5px;
+}
+
+#leftBlockBorder {
+	background-color: #fbb134;
+	position: absolute;
+	width: 500px;
+	height: 450px;
+	top: 300px;
+	left: 140px;
+	behavior: url(PIE.htc);
+	border-radius: 5px;
+}
+
+#leftBlock {
+	margin: 2px;
+	position: absolute;
+	background-color: #ffffff;
+	width: 496px;
+	height: 446px;
+	behavior: url(PIE.htc);
+	border-radius: 5px;
+}
+
+#paymentInfoBorder {
+	background-color: #fbb134;
+	position: absolute;
+	width: 500px;
+	height: 250px;
+	top: 300px;
+	left: 644px;
+	behavior: url(PIE.htc);
+	border-radius: 5px;
+}
+
+#paymentInfo {
+	margin: 2px;
+	position: absolute;
+	background-color: #ffffff;
+	width: 496px;
+	height: 246px;
+	behavior: url(PIE.htc);
+	border-radius: 5px;
+}
+
+#phoneDisp table tr td p{
+	position: absolute;
+	text-align: center;
+	background-color: #fbb434;
+	padding: 4px;
+	width: 90%;
+	top: 130px;
+	font-size: 60px;
+	font-weight: 200;
+	text-align: center;
+	margin: 0px 0px 0px 25px;
+	padding: 15px 0px 15px 0px;
+	behavior: url(PIE.htc);
+	border-radius: 5px;
+}
+
+#phoneDispTitle table tr td p {
+	position: absolute;
+	background-color: #ffffff;
+	padding: 4px;
+	font-weight: 400;
+	top:25px ;
+	width: 90%;
+	font-size: 25px;
+	margin-left: 20px;
+	text-align: center;
+}
+
+#currentSum table tr td:first-child p{
+	position: absolute;
+	background-color: #ffffff;
+	padding: 4px;
+	top:10px ;
+	width: 90%;
+	font-size: 25px;
+	font-weight: 400;
+	margin-left: 20px;
+	text-align: center;
+
+}
+
+#totalusd2{
+	position: absolute;
+	text-align: center;
+	background-color: #fbb434;
+	padding: 4px;
+	width: 90%;
+	top: 75px;
+	font-size: 60px;
+	font-weight: 200;
+	text-align: center;
+	margin: 0px 0px 0px 25px;
+	padding: 15px 0px 15px 0px;
+	behavior: url(PIE.htc);
+	border-radius: 5px;
+}
+
+
+#currentSumBorder {
+	position: absolute;
+	width: 500px;
+	height: 196px;
+	top: 554px;
+	left: 644px;
+	behavior: url(PIE.htc);
+	border-radius: 5px;
+	background-color: #fbb134;
+}
+
+#currentSum {
+	margin: 2px;
+	position: absolute;
+	background-color: #ffffff;
+	width: 496px;
+	height: 192px;
+	behavior: url(PIE.htc);
+	border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

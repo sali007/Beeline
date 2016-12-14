@@ -1,0 +1,524 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <title></title>
+    <meta http-equiv="content-type" content="text/html; charset=windows-1251" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <link rel="stylesheet" href="./css/enter_summ.css" type="text/css" />
+
+    <script type="text/javascript" src="./js/engine/utils.js"></script>
+
+    <script type="text/javascript" src="./js/engine/base.js"></script>
+
+    <script type="text/javascript" src="./js/engine/storage.js"></script>
+
+    <script type="text/javascript" src="./js/engine/advert.js"></script>
+
+    <script type="text/javascript" src="./advert_content.js"></script>
+
+    <script type="text/javascript" src="./js/engine/hyphen.js"></script>
+
+    <script type="text/javascript" src="./js/lang/str_F1.js"></script>
+
+    <script type="text/javascript" src="./js/lang/str_FC.js"></script>
+
+    <script type="text/javascript">	
+        var okr = 555;
+        var oPayInfo = null;
+        var bIsEnterSumm = true;
+        var nCommInfoTimeout = 0;
+        var nCommInfoNum = 0;
+        var oPayInfo = Object.deserialize(storage.get("pay_info"));
+        var prvId = storage.get("provider");
+        var logo;
+
+
+
+   
+        function init() {
+            var sLang = storage.get("language");
+
+
+            if(sLang == "F1"){
+               // $("btn_right_F1").style.display = "block";
+                $("btn_left_F1").style.display = "block";
+                $("btn_center_F1").style.display = "block";
+            }
+            else
+                if(sLang == "FC"){
+                  //  $("btn_right_FC").style.display = "block";
+                    $("btn_left_FC").style.display = "block";
+                    $("btn_center_FC").style.display = "block";
+                }
+            var oScr = detectScreen();
+
+            if ($isNoU(oPayInfo))
+            {
+                document.location.href = "./index.html";
+            }
+
+            logo = $("prv_logo");
+
+            displayPayInfo(oPayInfo);
+
+            var sLang = storage.get("language");
+            if (sLang == "F1"){
+                $('button_payment_F1').src = "./img/ui/navigation/menu_F1.gif";
+            }
+            else
+                if (sLang == "FC") {
+                    $('button_payment_FC').src = "./img/ui/navigation/menu_FC.gif";
+        
+                }
+            setOpacity("commission_info", 90);
+            new CInnerShadow($('btn_right_F1').getElementsByTagName('img')[0], { color: 30 });
+            new CInnerShadow($('btn_right_FC').getElementsByTagName('img')[0], { color: 30 });
+        }
+        
+        //-------------------Курсы Таблица ----------------------               
+        var valrub = 0;
+        var valusd = 0;
+        var valeur = 0;
+        var valegp = 0;
+        var valtry = 0;
+
+         function displayPayInfo(oInfo) {
+            var aInnPhone = [];
+            if (isCorrect(oInfo.account)) {
+                if (isCorrect(oInfo.isCellular)) {
+                    if (oInfo.isCellular == "true") {
+                        g_sPrvType = oInfo.isCharity ? 'CHARITY' : 'CELLULAR';
+
+                        if(g_sPrvType == 'CHARITY' && oInfo.account == '0000000000')
+                        {
+                            onMenuBtnClick('FORWARD');
+                            return;
+                        }
+                        //030 555-55-55
+                        //020 554-555-55
+                        if(oInfo.account.length == 10 ) {
+                            oInfo.account =
+                                    "(" + oInfo.account.substr(0, 3) + ")" + " " +
+                                    oInfo.account.substr(3, 3) + "-" +
+                            oInfo.account.substr(6, 2) + "-" +
+                            oInfo.account.substr(8, 2);
+                        }
+                        else if(oInfo.account.length == 11) {
+                            oInfo.account =
+                                    "(" + oInfo.account.substr(0, 3) + ")" + " " +
+                                    oInfo.account.substr(3, 3) + "-" +
+                            oInfo.account.substr(6, 3) + "-" +
+                            oInfo.account.substr(9, 2);
+                        }
+
+                    }
+                    else if (oInfo.isCellular == "false") {
+                        g_sPrvType = "OTHER";
+                    }
+                }
+
+                return oInfo.account;
+
+            }
+
+            else {
+                document.location.href = "./index.html";
+            }
+
+        }
+
+        function isCorrect(s) {
+            return (!$isNoU(s) && s.is(String) && s.length > 0);
+        }
+
+        function onMenuBtnClick(sBtn) {
+            var sLang = storage.get("language");
+
+            //var sAlertMsg = $("payment_info").value;
+            switch (sBtn) {
+                case "BACKWARD":
+                    if (g_sPrvType == "CELLULAR") {
+                        storage.put("provider", prvId);
+                        storage.put("click_new_index", 'true');
+                        document.location.href = "./provider.html";
+                    }
+                    else {
+                        storage.put("provider", oPayInfo.id);
+                        storage.put("click_new_index", 'true');
+                        document.location.href = "./provider.html";
+                    }
+                    storage.put("click_new_index", 'true');
+                    storage.put("pay_info", Object.serialize(storage.get("pay_info")));
+                    break;
+                case "MENU":
+                    document.location.href = "./index.html";
+                    storage.put("pay_info", "null");
+                    break;
+                case "FORWARD":
+                    if (sAlertMsg.length > 0) {
+                        $("payment_info").value = "";
+                        displayAlertMsg(sAlertMsg);
+                    }
+                    document.location.href = "./enter_summ.html";
+                    break;
+            }
+        }
+
+
+        function curstabvCreate() {
+            getScript("./config/" + storage.get("language") + "/" + storage.get("provider") + ".js");
+            var str_realsumm = ff.really_summ.value ;
+            storage.put("really_summ", str_realsumm);
+
+                $("totalusd2").innerHTML = $('getAmount').value;
+
+                $("minsumm").innerHTML =  getStr("es_1") + UIProvider.minSum + getStr("es_1_2") + " " + getStr("es_1_1") + UIProvider.maxSum + getStr("es_1_2");
+                $("phoneCheck").innerHTML = oPayInfo.account;
+
+
+        }
+
+        // ------------------------------------------------------------------------------------------------------------------
+        //-------------------Курсы Таблица----------------------
+
+
+
+        
+        function onPaymentBtnClick() {
+
+            startAdvert('Enter_Summ');
+            setTimeout(function(){
+                if (bIsEnterSumm) {
+                    oPayInfo.summ = $("really_summ").value;
+                    storage.put("pay_info", oPayInfo.serialize());
+                    if ($('getAmount').value != '0') {
+                            document.location.href = "./index.html";
+                    }
+                    else
+                        document.location.href = "./index.html";
+                    //if (UIProvider.id == 7368)
+                    //{document.location.href = "./p_life_postpage.html";}
+                    //else
+
+                    //{document.location.href = "./p_life_postpage.html";}
+                }
+            }, 50);
+        }
+        
+        
+        
+        
+        function onValueChange(oEventInfo, sElementId) {
+
+            var sLang = storage.get("language");
+
+            if (sLang == "F1")
+            {
+                $('btn_left_F1').style.display = "none";
+                if(UIProvider.minSum <= $("really_summ").value)
+                {
+                    $('button_payment_F1').src = "./img/ui/navigation/payment_" + sLang + ".gif";
+                }
+            }
+
+            else {
+                $('btn_left_FC').style.display = "none";
+                if(UIProvider.minSum <= $("really_summ").value)
+                {
+                    $('button_payment_FC').src = "./img/ui/navigation/payment_" + sLang + ".gif";
+                }
+
+            }
+                  
+            switch (sElementId) {
+                case "komisswarn":
+                    updateSpan("komisswarn", "komisswarn_span");
+                    break;
+                case "komisswarn2":
+                    updateSpan("komisswarn2", "komisswarn2_span");
+                    break;
+                case "getAmount":
+                    //                    $("advert_1").style.display = "none";
+                    //                    $("background").style.width = "0px";
+                    //                    $("background").style.height = "0px";
+                    break;
+                case "really_summ":
+                    if (oPayInfo != null) {
+                        //                    oPayInfo.summ = storage.get("summok");
+                        //                    oPayInfo.summ = $("summok").value;
+                        oPayInfo.summ = $("really_summ").value;
+                        storage.put("pay_info", oPayInfo.serialize());
+
+                    }
+                case "comissionInfoText":
+                    if ($("comissionInfoText").value.length != 0)
+                      //  $("commission_btn_1").style.display = "block";
+                    break;
+                case "comissionInfoText2":
+                    if ($("comissionInfoText2").value.length != 0)
+                        $("commission_btn_2").style.display = "block";
+                    break;
+                case "change":
+                    $("commission_btn_2").style.display = "block";
+                    break;
+                case "Prv2Type":
+                    if ($("Prv2Type").value == "1") {
+                        $("dc_header").innerHTML = "Перечисление сдачи";
+                    }
+                    else if ($("Prv2Type").value == "2") {
+                        $("dc_header").innerHTML = "Второй провайдер";
+                    }
+                    else {
+                        $("dc_header").innerHTML = "";
+                    }
+                    break;
+                case "SecondPrvComm":
+                    if ($("SecondPrvComm").value.toLowerCase() == "true") {
+                        $("red_line_txt").innerHTML = "Автомат сдачи наличными не выдает!";
+                        $("info_2").style.display = "block";
+                    }
+                    else {
+                        $("red_line_txt").innerHTML = "Автомат сдачи не выдает!";
+                        $("info_2").style.display = "none";
+                    }
+                    break;
+            }
+        }
+        
+
+
+        function updateSpan(sInputId, sSpanId) {
+            var oInput = $(sInputId);
+            var oSpan = $(sSpanId);
+            if (!($isNoU(oInput) || $isNoU(oSpan))) {
+                oSpan.innerHTML = oInput.value;
+            }
+        }
+        
+        
+
+        
+        function displayCommInfo(bDisplay) {
+            if ($bool(bDisplay)) {
+                $("commission_info").style.display = "block";
+                nCommInfoTimeout = setTimeout("displayCommInfo(false);", 15000);
+            }
+            else {
+                clearTimeout(nCommInfoTimeout);
+                $("commission_info").style.display = "none";
+                nCommInfoNum = 0;
+            }    
+        }
+        
+        
+        
+        
+        
+
+        function displayDelivery() {
+            $("delivery_div").style.display = "block";
+            $("red_line").style.display = "none";
+            detachPropertyChangeListener("change", displayDelivery);
+        }
+
+
+
+
+
+        function open_e_s(){
+
+            <!--	    document.getElementById('open_e_s').style.display = "block";-->
+            <!--        document.getElementById('open_info').style.display = "none";-->
+
+            $("open_info").style.display = "none";
+            $("open_e_s").style.display = "block";
+            $("fade").style.display = "none";
+        }
+
+
+
+	
+        function open_info(){
+
+            <!--	    document.getElementById('open_info').style.display = "none";-->
+            <!--        document.getElementById('open_e_s').style.display = "block";-->
+                    $("open_info").style.display = "block";
+            $("open_e_s").style.display = "none";
+            $("fade").style.display = "block";
+        }
+	
+	
+        function change_return(){
+            //if ( ff.change.value == 0)
+            $("change_return").style.display = "none";
+            $("change_return_ch").style.display = "block";
+            
+            $('change_value').value
+            $("change_value").innerHTML = $('change').value + " " + $('changeprop').value;
+        }
+
+    </script>
+
+</head>
+<body onload="init();open_e_s(); curstabvCreate();">
+<div id="logo"></div>
+
+    <form id="ff" name="ff" method="post" action="#">
+        <input id="prv_AddCash" name="prv_AddCash" style="display: none" type="text" value="" />
+        <input id="prv_AddCash_BillName" name="prv_AddCash_BillName" style="display: none"
+            type="text" value="" />
+        <input id="comissionInfoText" name="comissionInfoText" type="hidden" style="display: none"
+            value="" />
+        <input id="comissionInfoText2" name="comissionInfoText2" type="hidden" style="display: none"
+            value="" />
+        <input style="display: none" id="komiss" name="komiss" type="text" value=""><input
+            style="display: none" id="komissprop" name="komissprop" type="text" value="" />
+        <input id="getAmount" name="getAmount" type="text" value="" class="total" style="display: none" onpropertychange="curstabvCreate();" />
+        <!--onpropertychange только для маратлтест-->
+        <input style="display: none" id="really_summ" name="really_summ" type="text"
+            value="0" >
+        <input id="really_summ_prop" name="really_summ_prop" style="display: none" type="text"
+            value="" />
+        <!--  <input id="_extra_receipt_" name="Сумма округлена согласно правилам провайдера" style="display: none" type="text" value="45" />-->
+        <div class="popup-wrapper" id="open_info" style="display: none" onclick="open_e_s();">
+
+
+        </div>
+
+        <div class="course-wrapper" id="open_e_s" style="display: none">
+
+
+            <div class="panel">
+
+                <div id="leftBlockBorder">
+                  <div id="leftBlock"  >
+                      <div id="howToUse">
+                        <script type="text/javascript">document.write(getStr("es_6"));</script>
+                      </div>
+
+                      <div id="limits">
+                                <p id="minsumm" class="container"></p>
+                      </div>
+
+                      <div id="changeInfo">
+                          <table>
+                            <tr>
+                                <td><p id="attentionPic">!</p></td>
+                                <td><p id="attention"><script type="text/javascript">document.write(getStr("es_5"));</script></p></td>
+                            </tr>
+                          </table>
+                      </div>
+                  </div>
+                </div>
+
+
+                <div id="paymentInfoBorder">
+                  <div id="paymentInfo">
+
+                    <div id="phoneDispTitle">
+                        <table>
+                              <tr>
+                                  <td>
+                                      <p><script type="text/javascript">document.write(getStr("es_12"));</script></p>
+                                  </td>
+                              </tr>
+                        </table>
+                    </div>
+
+                    <div id="phoneDisp">
+                        <!--номинал валюты суммы к зачислению-->
+                        <table>
+                            <tr>
+                                <td>
+                                    <p id="phoneCheck"></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div id="currentSumBorder">
+                    <div id="currentSum">
+                        <table>
+                            <tr>
+                                <td>
+                                    <p><script type="text/javascript">document.write(getStr("es_2"));</script></p>
+                                </td>
+                                <td>
+                                    <p id="totalusd2"></p>
+                                </td>
+                                <!--Внесенная сумма-->
+                            </tr>
+                        </table>
+
+
+                      <div style="display: none">
+                        <input id="changeprop" name="changeprop" type="text" value="" />
+                        <input id="change" name="change" type="text" value="" onpropertychange="change_return();" />
+                        <input id="komissprop2" name="komissprop2" type="text" value="" />
+                        <input id="komiss2" name="komiss2" type="text" value="" />
+                        <input id="komissprofile2" name="komissprofile2" type="text" value="" />
+                        <input id="really_summ_prop2" name="really_summ_prop2" type="text" value="" />
+                        <input id="really_summ2" name="really_summ2" type="text" value="" />
+                      </div>
+                    </div>
+                </div>
+          </div>
+        </div>
+        <!--  </div>-->
+    </form>
+
+
+    <div class="fade-wrapper" id="fade" onclick="open_e_s();">
+    </div>
+    <div id="btn_left_F1" style="display: none;" class="bottom-button-left">
+        <img src="./img/ui/navigation/back_F1.gif" onclick="onMenuBtnClick('BACKWARD') " />
+        <p onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_left"));</script></p>
+    </div>
+    <div id="btn_left_FC" style="display: none;" class="bottom-button-left">
+        <img src="./img/ui/navigation/back_FC.gif" onclick="onMenuBtnClick('BACKWARD') " />
+    </div>
+    <div id="btn_right_F1" style="display: none; z-index: 5;" class="bottom-button-right">
+        <img src="./img/ui/navigation/forward_F1.gif" onclick="onPaymentBtnClick();" />
+        <p onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_right"));</script></p>
+    </div>
+    <div id="btn_right_FC" style="display: none; z-index: 5;" class="bottom-button-right">
+        <img  src="./img/ui/navigation/forward_FC.gif" onclick="onPaymentBtnClick();" />
+    </div>
+
+    <div id="btn_center_F1" style="display: none; z-index: 5;" class="bottom-button-center">
+        <img id="button_payment_F1" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
+        <p onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
+    </div>
+<div id="btn_center_FC" style="display: none; z-index: 5;" class="bottom-button-center">
+    <img id="button_payment_FC" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
+</div>
+
+    <script type="text/javascript">
+        attachPropertyChangeListener("really_summ",
+                $callback(onValueChange, "really_summ"));
+        attachPropertyChangeListener("komisswarn",
+            $callback(onValueChange, "komisswarn"));
+        attachPropertyChangeListener("komisswarn2",
+            $callback(onValueChange, "komisswarn2"));
+        attachPropertyChangeListener("getAmount",
+            $callback(onValueChange, "getAmount"));
+        attachPropertyChangeListener("comissionInfoText",
+            $callback(onValueChange, "comissionInfoText"));
+        attachPropertyChangeListener("comissionInfoText2",
+            $callback(onValueChange, "comissionInfoText2"));
+        attachPropertyChangeListener("Prv2Type",
+            $callback(onValueChange, "Prv2Type"));
+        attachPropertyChangeListener("SecondPrvComm",
+            $callback(onValueChange, "SecondPrvComm"));
+        attachPropertyChangeListener("change",
+            displayDelivery);
+        attachEventListener("commission_info", "click",
+            function() { displayCommInfo(false); });
+        
+    </script>
+
+</body>
+</html>
