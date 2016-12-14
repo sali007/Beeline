@@ -58,12 +58,12 @@
             var sLang = storage.get("language");
             if (sLang == "F1") {
                 document.getElementById('F1_lang').style.display = "block";
-                //document.getElementById('FC_lang').style.display = "block";
+                document.getElementById('FC_lang').style.display = "block";
 
             }
             else
                 if (sLang == "FC") {
-                   // document.getElementById('FC_lang').style.display = "block";
+                    document.getElementById('FC_lang').style.display = "block";
                     document.getElementById('F1_lang').style.display = "block";
                 }
         }
@@ -195,8 +195,8 @@
           <div id='F1_lang' onclick='setLang("F1");date();'>
             LA<img src="img/ui/index/l_F1_on.png" width="50" height="30" alt="LA">
           </div>
-          <div id='FC_lang' onclick='setLang("FC");date();'>
-            <!--EN<img src="img/ui/index/l_FC_on.png" width="50" height="30" alt="EN">-->
+          <div id='FC_lang'>
+            EN<img src="img/ui/index/l_FC_on.png" width="50" height="30" alt="EN">
           </div>
         </div>
     </div>
