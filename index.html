@@ -9,6 +9,8 @@
     <script type="text/javascript" src="./js/engine/storage.js"></script>
 
     <script type="text/javascript" src="./js/engine/base.js"></script>
+    <script src="./js/lang/str_F1.js"></script>
+    <script src="./js/lang/str_FC.js"></script>
 
     <script type="text/javascript">
 
@@ -51,6 +53,10 @@
         function setLang(sLanguage) {
             storage.put("language", sLanguage);
             $("Language").value = sLanguage;
+            if (sLanguage == null) {
+                storage.put("language", "F1");
+            }
+            $("main_button").innerHTML  = getStr("main_button");
 
         }
 
@@ -88,9 +94,9 @@
                 onButtonClick(5)
             });
 
-            //attachEventListener('rules', 'click', function () {
-              //  onButtonClick(6)
-            //});
+            attachEventListener('rules', 'click', function () {
+                onButtonClick(6)
+            });
 
         }
 
@@ -195,7 +201,7 @@
           <div id='F1_lang' onclick='setLang("F1");date();'>
             LA<img src="img/ui/index/l_F1_on.png" width="50" height="30" alt="LA">
           </div>
-          <div id='FC_lang'>
+          <div id='FC_lang' onclick='setLang("FC");date();'>
             EN<img src="img/ui/index/l_FC_on.png" width="50" height="30" alt="EN">
           </div>
         </div>
@@ -208,7 +214,7 @@
                 </div>
 
                 <div id="new_button_1">
-                    <div><p>ເຕີມເງິນ</p></div>
+                    <div><p id="main_button" name="main_button"><script type="text/javascript">document.write(getStr("main_button"));</script></p></div>
                 </div>
 
 
@@ -219,7 +225,7 @@
 
             <div id="text_info">
                 <form id="ff" name="ff" method="post" action="#">
-                    <input style="display: none;" type="hidden" name="interface_version" value="LAOS 1.0.0" />
+                    <input style="display: none;" type="hidden" name="interface_version" value="LAOS 1.0.1" />
                     <input name="tel" type="text" value="toyar"/>
                     <input style="display: none;" type="hidden" id="Language" name="Language" value="" />
                     <input style="display: none;" id="cur" name="cur" type="text" value="643|840|978|949|818|418" />

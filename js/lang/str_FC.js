@@ -123,6 +123,12 @@
     "ok_1": "Fast and convenient" ,//слоган
     "ok_2": "Phone",//благодарность
     "ok_3": "Credited", //номер счета телефона
-    "ok_4": ""// зачислено
+    "ok_4": "",// зачислено
+    "btn_left": "Back",
+    "btn_center": "Menu",
+    "btn_right": "Next",
+    "bs_btn": "Delete",
+    "main_button":"Top up",
+    "btn_payment":"Pay"
 
 }

@@ -702,30 +702,38 @@ input
 }
 
 
-.bottom-button-center p
- {
+#btn_left-F1,#btn_center-F1,#btn_right-F1,#btn_center-FC,#btn_left-FC,#btn_right-FC {
 	position: absolute;
-	font-size: 70px;
 	font-weight: 900;
+	font-size: 70px;
 	text-align: center;
+}
+#btn_center-F1
+{
 	margin: -85px 0px 0px 10px;
 }
 
-.bottom-button-left p {
-	position: absolute;
-	font-size: 80px;
-	font-weight: 900;
-	text-align: center;
-	margin: -90px 0px 0px 130px;
+#btn_left-F1 {
+	margin: -85px 0px 0px 130px;
 }
 
-.bottom-button-right p {
-	position: absolute;
-	font-size: 80px;
-	font-weight: 900;
-	text-align: center;
-	margin: -90px 0px 0px 20px;
+#btn_right-F1 {
+	margin: -85px 0px 0px 20px;
 }
+
+#btn_center-FC
+{
+	margin: -85px 0px 0px 60px;
+}
+
+#btn_left-FC {
+	margin: -85px 0px 0px 110px;
+}
+
+#btn_right-FC {
+	margin: -85px 0px 0px 25px;
+}
+
 .header
 {
 	width: 100%; 

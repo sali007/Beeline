@@ -127,7 +127,9 @@
     "btn_left": "ກັບ",
     "btn_center": "ໜ້າຫລັກ",
     "btn_right": "ຕໍ່ໄປ",
-    "bs_btn": "ລົບ"
+    "bs_btn": "ລົບ",
+    "main_button":"ເຕີມເງິນ",
+    "btn_payment":"ຊໍາລະເງິນ"
 
 
 

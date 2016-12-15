@@ -1145,9 +1145,11 @@ function getStr(sKey) {
     var oStrings = null;
 
     try {
+
         eval("oStrings = strings_" + storage.get("language"));
-        
+
         if (oStrings[sKey]) {
+
             return oStrings[sKey];
         }
         return "";

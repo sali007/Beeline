@@ -192,7 +192,7 @@
                     oPayInfo.summ = $("really_summ").value;
                     storage.put("pay_info", oPayInfo.serialize());
                     if ($('getAmount').value != '0') {
-                            document.location.href = "./index.html";
+                            document.location.href = "./ok.html";
                     }
                     else
                         document.location.href = "./index.html";
@@ -218,6 +218,7 @@
                 if(UIProvider.minSum <= $("really_summ").value)
                 {
                     $('button_payment_F1').src = "./img/ui/navigation/payment_" + sLang + ".gif";
+                    $('btn_center-F1').innerHTML = getStr("btn_payment");
                 }
             }
 
@@ -226,6 +227,7 @@
                 if(UIProvider.minSum <= $("really_summ").value)
                 {
                     $('button_payment_FC').src = "./img/ui/navigation/payment_" + sLang + ".gif";
+                    $('btn_center-FC').innerHTML = getStr("btn_payment");
                 }
 
             }
@@ -475,25 +477,28 @@
     </div>
     <div id="btn_left_F1" style="display: none;" class="bottom-button-left">
         <img src="./img/ui/navigation/back_F1.gif" onclick="onMenuBtnClick('BACKWARD') " />
-        <p onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_left"));</script></p>
+        <p id="btn_left-F1" onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_left"));</script></p>
     </div>
     <div id="btn_left_FC" style="display: none;" class="bottom-button-left">
         <img src="./img/ui/navigation/back_FC.gif" onclick="onMenuBtnClick('BACKWARD') " />
+        <p id="btn_left-FC" onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_left"));</script></p>
     </div>
     <div id="btn_right_F1" style="display: none; z-index: 5;" class="bottom-button-right">
         <img src="./img/ui/navigation/forward_F1.gif" onclick="onPaymentBtnClick();" />
-        <p onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_right"));</script></p>
+        <p id="btn_right-F1"onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_right"));</script></p>
     </div>
     <div id="btn_right_FC" style="display: none; z-index: 5;" class="bottom-button-right">
         <img  src="./img/ui/navigation/forward_FC.gif" onclick="onPaymentBtnClick();" />
+        <p id="btn_right-FC"onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_right"));</script></p>
     </div>
 
     <div id="btn_center_F1" style="display: none; z-index: 5;" class="bottom-button-center">
         <img id="button_payment_F1" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
-        <p onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
+        <p id="btn_center-F1"onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
     </div>
 <div id="btn_center_FC" style="display: none; z-index: 5;" class="bottom-button-center">
     <img id="button_payment_FC" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
+    <p id="btn_center-FC"onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
 </div>
 
     <script type="text/javascript">

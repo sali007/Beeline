@@ -37,10 +37,10 @@
 
         function displayPayInfo(oInfo) {
             if (isCorrect(oInfo.account)) {
-                $("num_inp").value = oInfo.account == '0000000000' ? 'Номер не указан' : oInfo.account;
+                $("num_txt").innerHTML = oInfo.account == '0000000000' ? 'Номер не указан' : oInfo.account;
             }
             else {
-                $("num_inp").value = "";
+                $("num_txt").innerHTML = "";
             }
             
             if (isCorrect(oInfo.summ)) { // Округление для Life :)
@@ -87,7 +87,7 @@
                 </div>
                 <div id="account">
                     <p><script type="text/javascript">document.write(getStr("ok_2"));</script></p>
-                    <div id="num_txt"><input id="num_inp" name="num_inp" type="text" value="" /></div>
+                    <div id="num_txt"></div>
                 </div>
                 <div id="amount">
                     <p><script type="text/javascript">document.write(getStr("ok_3"));</script></p>
@@ -104,10 +104,12 @@
                 
                 <div id="btn_center_F1" style="display:none;" class="bottom-button-center">
                     <img alt="" src="./img/ui/navigation/menu_F1.gif" onClick="onMenuBtnClick('FORWARD');" />
+                    <p id="btn_center-F1"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
                 </div>
                 
                 <div id="btn_center_FC" style="display:none;" class="bottom-button-center">
                 <img alt="" src="./img/ui/navigation/menu_FC.gif" onClick="onMenuBtnClick('FORWARD');" />
+                    <p id="btn_center-FС"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
                 </div>
                 
                 

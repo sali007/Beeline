@@ -22,18 +22,18 @@ function init()
 	document.getElementById('btn_back').style.display = "block";
 	document.getElementById('btn_menu').style.display = "block";
 	document.getElementById('btn_forward').style.display = "block";
-	new CInnerShadow($('btn_back'), { color: 30 });
-	new CInnerShadow($('btn_menu'), { saturation: 1, brightness: 200 });
-	new CInnerShadow($('btn_forward'), { color: 30 });
+	//new CInnerShadow($('btn_back'), { color: 30 });
+	//new CInnerShadow($('btn_menu'), { saturation: 1, brightness: 200 });
+	//new CInnerShadow($('btn_forward'), { color: 30 });
 	}
 	else {	
 	slide();
 	document.getElementById('btn_back_FC').style.display = "block";
 	document.getElementById('btn_menu_FC').style.display = "block";
 	document.getElementById('btn_forward_FC').style.display = "block";
-	new CInnerShadow($('btn_back_FC'), { color: 30 });
-	new CInnerShadow($('btn_menu_FC'), { saturation: 1, brightness: 200 });
-	new CInnerShadow($('btn_forward_FC'), { color: 30 });	
+	//new CInnerShadow($('btn_back_FC'), { color: 30 });
+	//new CInnerShadow($('btn_menu_FC'), { saturation: 1, brightness: 200 });
+	//new CInnerShadow($('btn_forward_FC'), { color: 30 });
 	}	
 }
 function slide()
@@ -78,7 +78,7 @@ function backward()
 		    <table cellpadding="0" cellspacing="0" border="0" width="100%" height="51">
 			    <tr>
 
-			        <td background="./img/ui/title/bg_inf.gif" align="center" valign="middle"><span style="color: #ffffff; font-size: 24px; font-family: Tahoma;"><script type="text/javascript">document.write(getStr("guid"));</script></span></td>
+			        <td align="center" valign="middle"><span style="color: #000000; font-size: 24px; font-family: Tahoma;"><script type="text/javascript">document.write(getStr("guid"));</script></span></td>
 
 			    </tr>
 		    </table>
@@ -111,13 +111,31 @@ function backward()
 	</tr>
     <tr>
         <td>
-                <div id="btn_back" style="display: none;" class="bottom-button-left" onclick="backward()"><img src="./img/ui/navigation/back_F1.gif" /></div>
-                <div id="btn_menu" style="display: none;" class="bottom-button-center" onclick="document.location='./index.html'"><img src="./img/ui/navigation/menu_F1.gif" /></div>
-                <div id="btn_forward" style="display: none;" class="bottom-button-right" onclick="forward()"><img src="./img/ui/navigation/forward_F1.gif" /></div>
+                <div id="btn_back" style="display: none;" class="bottom-button-left" onclick="backward()">
+					<img src="./img/ui/navigation/back_F1.gif" />
+					<p id="btn_left-F1"><script type="text/javascript">document.write(getStr("btn_left"));</script></p>
+				</div>
+                <div id="btn_menu" style="display: none;" class="bottom-button-center" onclick="document.location='./index.html'">
+					<img src="./img/ui/navigation/menu_F1.gif" />
+					<p id="btn_center-F1"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
+				</div>
+                <div id="btn_forward" style="display: none;" class="bottom-button-right" onclick="forward()">
+					<img src="./img/ui/navigation/forward_F1.gif" />
+					<p id="btn_right-F1"><script type="text/javascript">document.write(getStr("btn_right"));</script></p>
+				</div>
                 
-                <div id="btn_back_FC" style="display: none;" class="bottom-button-left" onclick="backward()"><img src="./img/ui/navigation/back_FC.gif" /></div>
-                <div id="btn_menu_FC" style="display: none;" class="bottom-button-center" onclick="document.location='./index.html'"><img src="./img/ui/navigation/menu_FC.gif" /></div>
-                <div id="btn_forward_FC" style="display: none;" class="bottom-button-right" onclick="forward()"><img src="./img/ui/navigation/forward_FC.gif" /></div>
+                <div id="btn_back_FC" style="display: none;" class="bottom-button-left" onclick="backward()">
+					<img src="./img/ui/navigation/back_FC.gif" />
+					<p id="btn_left-FC"><script type="text/javascript">document.write(getStr("btn_left"));</script></p>
+				</div>
+                <div id="btn_menu_FC" style="display: none;" class="bottom-button-center" onclick="document.location='./index.html'">
+					<img src="./img/ui/navigation/menu_FC.gif" />
+					<p id="btn_center-FC"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
+				</div>
+                <div id="btn_forward_FC" style="display: none;" class="bottom-button-right" onclick="forward()">
+					<img src="./img/ui/navigation/forward_FC.gif" />
+					<p id="btn_right-FC"><script type="text/javascript">document.write(getStr("btn_right"));</script></p>
+				</div>
         </td>
     </tr>   
 </table>

@@ -283,11 +283,12 @@ CComponent = createClass
 	    },
 
 	    _paint: function() {
+			var idName = this._sPlace +  "-" + storage.get("language");
 			var btnName = getStr(this._sPlace);
 	        var oDiv = $(this.getPlaceId());
 	        if (!Object.isNullOrUndefined(oDiv)) {
 	            //oDiv.innerHTML = "<img alt=\"\" src=\"" + this._sBaseFolder + this._sEnabledImg + "\" onMouseOver=\"this.src='" + this._sBaseFolder + this._sDisabledImg + "'\" onMouseOut=\"this.src='" + this._sBaseFolder + this._sEnabledImg + "'\">";
-	            oDiv.innerHTML = "<img src=\"" + this._sBaseFolder + this._sEnabledImg + "\" /><p>"+ btnName + "</p>";
+	            oDiv.innerHTML = "<img src=\"" + this._sBaseFolder + this._sEnabledImg + "\" /><p id=\'" + idName +"\'>"+ btnName + "</p>";
 				oDiv.onclick = null;
 	            oDiv.childNodes[0].onclick = $delegate(this, this.click);
 	            var options = { color: 30 };
@@ -810,10 +811,11 @@ CImageButton = createClass
 	    },
 
 	    _paint: function() {
+			var bsBtnName = getStr("bs_btn");
 	        var oDiv = $(this.getPlaceId());
 	        if (!Object.isNullOrUndefined(oDiv)) {
 	            // oDiv.innerHTML = "<img alt=\"" + this.getInstance() + "\" src=\"" + this._sInactivePic + "\" onMouseOver=\"this.src='" + this._sActivePic + "'\" onMouseOut=\"this.src='" + this._sInactivePic + "'\">";
-	            oDiv.innerHTML = "<img style=\"margin-top:39px\" alt='" + this.getInstance() + "' src=\"" + this._sInactivePic + "\" />";
+	            oDiv.innerHTML = "<img style=\"margin-top:39px\" alt='" + this.getInstance() + "' src=\"" + this._sInactivePic + "\" /><p id=\"bs_btn_"+storage.get("language") + "\">"+bsBtnName+"</p>";
 	            //new CInnerShadow(oDiv, { color: 30 });
 	        }
 	    },

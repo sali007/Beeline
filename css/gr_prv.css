@@ -122,11 +122,6 @@ body
 	overflow: hidden;
 }
 
-#page.tab_fields_place,#page.tab_bs {
-	position: absolute;
-	background-color: #000000;
-}
-
 #page_page_body_tab span{
 	position: absolute;
 	width: 140%;
@@ -138,6 +133,22 @@ body
 
 .field_chunk {
 	font-size: 50px;
+}
+
+#bs_btn_F1,#bs_btn_FC{
+	position: absolute;
+	font-size: 60px;
+	margin-top: 55px;
+	left: 950px;
+
+}
+
+#bs_btn_FC{
+	position: absolute;
+	font-size: 45px;
+	margin-top: 62px;
+	left: 920px;
+
 }
 
 
