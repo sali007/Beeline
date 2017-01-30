@@ -16,7 +16,7 @@
         function init() {
         
      
-        var sLang = "FC";//storage.get("language");
+        var sLang = storage.get("language");
 
 
         if(sLang == "F1"){
@@ -30,7 +30,7 @@
         
             var oPayInfo = Object.deserialize(storage.get("pay_info"));
             if ($isNoU(oPayInfo)) {
-                document.location.href = "./index.html";
+               // document.location.href = "./index.html";
             }
             displayPayInfo(oPayInfo);
         }
@@ -77,13 +77,13 @@
 	</script>
 </head>
 <body onLoad="init();">
-<div id="easypay_logo"></div>
+<div id="logo"></div>
 <form id="ff" name="ff" method="post" action="#">
        <div id="content">
             <div id="contenerBorder">
               <div id="contener">
                 <div id="slogan">
-                    <script type="text/javascript">document.write(getStr("ok_1"));</script>
+                    <p><script type="text/javascript">document.write(getStr("ok_1"));</script></p>
                 </div>
                 <div id="account">
                     <p><script type="text/javascript">document.write(getStr("ok_2"));</script></p>
@@ -108,7 +108,7 @@
                 </div>
                 
                 <div id="btn_center_FC" style="display:none;" class="bottom-button-center">
-                <img alt="" src="./img/ui/navigation/menu_FC.gif" onClick="onMenuBtnClick('FORWARD');" />
+                    <img alt="" src="./img/ui/navigation/menu_FC.gif" onClick="onMenuBtnClick('FORWARD');" />
                     <p id="btn_center-FС"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
                 </div>
                 
