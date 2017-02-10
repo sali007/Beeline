@@ -128,7 +128,10 @@
     "btn_center": "Menu",
     "btn_right": "Next",
     "bs_btn": "Delete",
-    "main_button":"Top up",
+    "main_button":"Beeline",
+    "main_686":"LAO</br>Telecom",
+    "main_690":"Unitel",
+    "main_699":"ETL",
     "btn_payment":"Pay",
     "main_sum":"Attention!  Minimum amount of payment is 5,000 KIP"
 

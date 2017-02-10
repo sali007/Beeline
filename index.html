@@ -91,6 +91,16 @@
                 onButtonClick(1)
             });
 
+            attachEventListener('new_button_2', 'click', function () {
+                onButtonClick(2)
+            });
+            //attachEventListener('new_button_3', 'click', function () {
+            //    onButtonClick(3)
+            //});
+            attachEventListener('new_button_4', 'click', function () {
+                onButtonClick(4)
+            });
+
             attachEventListener('info', 'click', function () {
                 onButtonClick(5)
             });
@@ -154,6 +164,25 @@
                     location.href = "./provider.html";
                     break;
 
+                case 2:
+                    storage.put("provider", "690");
+                    storage.put("click_new_index", 'true');
+                    location.href = "./provider.html";
+                    break;
+
+                case 3:
+                    storage.put("provider", "686");
+                    storage.put("click_new_index", 'true');
+                    location.href = "./provider.html";
+                    break;
+
+                case 4:
+                    storage.put("provider", "699");
+                    storage.put("click_new_index", 'true');
+                    location.href = "./provider.html";
+                    break;
+
+
                 case 5:
                     top.location.href = "./info.html";
                     break;
@@ -208,15 +237,35 @@
         </div>
     </div>
 
+    <div  id="logo-main">
+                  <img width="300" align="center" src="img/ui_item/Beeline.png">
+              </div>
 
-    <div id='new_buttons'>
-                <div  id="logo-main">
-                    <img src="img/ui_item/Beeline.png">
-                </div>
 
-                <div id="new_button_1">
-                    <div><p id="main_button" name="main_button"><script type="text/javascript">document.write(getStr("main_button"));</script></p></div>
-                </div>
+    <div id='new_buttons' style='position: absolute; width: 950px; height: 400px; left: 165px; top: 330px; z-index: 1000; text-align:center;'>
+
+            <table width="100%" height="100%" cellpadding="4" cellspacing="4">
+                <tr>
+                    <td id="new_button_1" colspan="3">
+                        <p id="main_button" name="main_button"><script type="text/javascript">document.write(getStr("main_button"));</script></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="new_button" id="new_button_3">
+                        <p id="main_686" name="main_686"><script type="text/javascript">document.write(getStr("main_686"));</script></p>
+
+                    </td>
+                    <td class="new_button" id="new_button_2">
+                        <p id="main_690" name="main_690"><script type="text/javascript">document.write(getStr("main_690"));</script></p>
+
+                    </td>
+                    <td class="new_button" id="new_button_4">
+                        <p id="main_699" name="main_699"><script type="text/javascript">document.write(getStr("main_699"));</script></p>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
 
 
         <div id="sum">

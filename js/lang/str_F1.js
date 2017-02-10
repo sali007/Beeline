@@ -128,7 +128,10 @@
     "btn_center": "ໜ້າຫລັກ",
     "btn_right": "ຕໍ່ໄປ",
     "bs_btn": "ລົບ",
-    "main_button":"ເຕີມເງິນ",
+    "main_button":"Beeline",
+    "main_686":"LAO</br>Telecom",
+    "main_690":"Unitel",
+    "main_699":"ETL",
     "btn_payment":"ຊໍາລະເງິນ",
     "main_sum":"ເລີ່ມຕົ້ນພຽງ 5,000 ກີບ, ເຕີມເລີຍ ພ້ອມລຸ້ນຮັບຂອງລາງ"
 
