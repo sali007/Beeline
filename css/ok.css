@@ -23,7 +23,7 @@
     border-radius: 15px;
 }
 
-#slogan {
+#slogan p {
     font-size: 40px;
     position: absolute;
     text-align: center;
@@ -35,13 +35,17 @@
     margin-top: -40px;
 }
 
+#slogan p {
+
+}
+
 #account {
     position: absolute;
     font-weight: 400;
     font-size: 25px;
     width: 100%;
     margin-top: 100px;
-    margin-left: 130px;
+    margin-left: 10px;
 }
 
 #account p, #amount p {
@@ -51,15 +55,14 @@
 #num_txt, #summ_txt {
     position: absolute;
     background-color: #fbb434;
-    font-size: 50px;
+    font-size: 35px;
     padding: 10px;
     text-align: center;
-    width: 250px;
     height: 65px;
     behavior: url(PIE.htc);
     border-radius: 5px;
-    margin: -65px 0px 0px 250px;
-    width: 400px;
+    margin: -65px 0px 0px 490px;
+    width: 280px;
 }
 
 #amount {
@@ -68,7 +71,7 @@
     font-size: 25px;
     width: 100%;
     margin-top: 240px;
-    margin-left: 130px;
+    margin-left: 10px;
 }
 
 

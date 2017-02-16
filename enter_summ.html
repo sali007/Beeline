@@ -73,7 +73,7 @@
                 }
             setOpacity("commission_info", 90);
 
-            minSum = UIProvider.minSum;
+
             new CInnerShadow($('btn_right_F1').getElementsByTagName('img')[0], { color: 30 });
             new CInnerShadow($('btn_right_FC').getElementsByTagName('img')[0], { color: 30 });
         }
@@ -177,6 +177,7 @@
 
                 $("minsumm").innerHTML =  getStr("es_1") + UIProvider.minSum + getStr("es_1_2") + " " + getStr("es_1_1") + UIProvider.maxSum + getStr("es_1_2");
                 $("phoneCheck").innerHTML = oPayInfo.account;
+                 minSum = UIProvider.minSum;
 
 
         }
