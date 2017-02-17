@@ -84,19 +84,31 @@
     width: 950px;
     height: 170px;
     behavior: url(PIE.htc);
-    border-radius: 5px;
+    border-radius: 15px;
 }
 
 .new_button {
-    background-color: #fbb434;
+    background-color: #ffffff;
     width: 350px;
-    height: 170px;
+    height: 150px;
+    left: 50px;
     behavior: url(PIE.htc);
-    border-radius: 5px;
+    border-radius: 15px;
+}
+
+#new_button_4 {
+    padding-left: 60px;
+}
+
+#new_button_2 {
+    padding: 40px;
+    background-color: #ffffff;
+    border-right: 1px solid darkgrey;
 }
 
 #new_button_3 {
-    background-color: #d08f34;
+    padding-left: 60px;
+    border-right: 1px solid darkgrey;
 }
 
 .new_button p {
@@ -107,13 +119,13 @@
 
 #new_button_1 p,{
     background-color: #fbb434;
-    margin: 10px 280px 10px 280px;
-    padding: 10px 10px 10px 10px;
+    margin: 0px 280px 0px 280px;
+    padding: 0px 10px 0px 10px;
     font-weight: 700;
     text-align: center;
     font-size: 90px;
     behavior: url(PIE.htc);
-    border-radius: 5px;
+    border-radius: 0px;
 }
 
 #sum p {
@@ -137,9 +149,10 @@
 #text_info form input {
     float: left;
     height: 80px;
+    width: 800px;
     font-weight: bold;
     margin: 25px 0px 0px 57px;
-    font-size: 60px;
+    font-size: 40px;
     background-color: #fbb434;
 }
 

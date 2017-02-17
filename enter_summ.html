@@ -217,6 +217,9 @@
             var sLang = storage.get("language");
 
             $('btn_left_'+sLang).style.display = "none";
+
+
+
                   
             switch (sElementId) {
                 case "komisswarn":
@@ -232,7 +235,9 @@
                     break;
                 case "really_summ":
                     if (oPayInfo != null) {
+
                         if(minSum <= $("really_summ").value) {
+                            $('btn_center-'+sLang).innerHTML = getStr("btn_payment");
                             $('button_payment_'+ sLang).src = "./img/ui/navigation/payment_" + sLang + ".gif";
                         }
                         oPayInfo.summ = $("really_summ").value;
@@ -481,12 +486,12 @@
 
     <div id="btn_center_F1" style="display: none; z-index: 5;" class="bottom-button-center">
         <img id="button_payment_F1" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
-        <p id="btn_center-F1"onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
-    </div>
+        <p id="btn_center-F1" onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
+        </div>
 <div id="btn_center_FC" style="display: none; z-index: 5;" class="bottom-button-center">
     <img id="button_payment_FC" src="./img/ui/navigation/menu_F1.gif" onclick="onPaymentBtnClick();" />
-    <p id="btn_center-FC"onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
-</div>
+    <p id="btn_center-FC" onclick="onPaymentBtnClick();"><script type="text/javascript">document.write(getStr("btn_center"));</script></p>
+    </div>
 
     <script type="text/javascript">
         attachPropertyChangeListener("really_summ",

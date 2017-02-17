@@ -46,6 +46,7 @@
             //-------------------Курсы----------------------
             var mess = ''
             var sLang = storage.get("language");
+            $("main_button").innerHTML  = getStr("main_button");
 
         }
 
@@ -244,23 +245,26 @@
 
     <div id='new_buttons' style='position: absolute; width: 950px; height: 400px; left: 165px; top: 330px; z-index: 1000; text-align:center;'>
 
-            <table width="100%" height="100%" cellpadding="4" cellspacing="4">
+            <table width="100%" height="100%" cellpadding="4" cellspacing="0">
                 <tr>
                     <td id="new_button_1" colspan="3">
-                        <p id="main_button" name="main_button"><script type="text/javascript">document.write(getStr("main_button"));</script></p>
+                        <p id="main_button" name="main_button"></p>
                     </td>
                 </tr>
                 <tr>
                     <td class="new_button" id="new_button_3">
-                        <p id="main_686" name="main_686"><script type="text/javascript">document.write(getStr("main_686"));</script></p>
+                        <img src="./img/ui_item/lao.png">
+                        <!--<p id="main_686" name="main_686"><script type="text/javascript">document.write(getStr("main_686"));</script></p>-->
 
                     </td>
                     <td class="new_button" id="new_button_2">
-                        <p id="main_690" name="main_690"><script type="text/javascript">document.write(getStr("main_690"));</script></p>
+                        <img src="./img/ui_item/uni.png">
+                        <!--<p id="main_690" name="main_690"><script type="text/javascript">document.write(getStr("main_690"));</script></p>-->
 
                     </td>
                     <td class="new_button" id="new_button_4">
-                        <p id="main_699" name="main_699"><script type="text/javascript">document.write(getStr("main_699"));</script></p>
+                        <img src="./img/ui_item/etl1.png">
+                       <!-- <p id="main_699" name="main_699"><script type="text/javascript">document.write(getStr("main_699"));</script></p>-->
 
                     </td>
                 </tr>

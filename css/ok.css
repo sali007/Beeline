@@ -31,7 +31,7 @@
     background-color: #fbb434;
     behavior: url(PIE.htc);
     border-radius: 5px;
-    left: 196px;
+    left: 246px;
     margin-top: -40px;
 }
 
@@ -45,7 +45,7 @@
     font-size: 25px;
     width: 100%;
     margin-top: 100px;
-    margin-left: 10px;
+    margin-left: 70px;
 }
 
 #account p, #amount p {
@@ -55,14 +55,14 @@
 #num_txt, #summ_txt {
     position: absolute;
     background-color: #fbb434;
-    font-size: 35px;
+    font-size: 40px;
     padding: 10px;
     text-align: center;
     height: 65px;
     behavior: url(PIE.htc);
     border-radius: 5px;
-    margin: -65px 0px 0px 490px;
-    width: 280px;
+    margin: -65px 0px 0px 320px;
+    width: 320px;
 }
 
 #amount {
@@ -71,7 +71,7 @@
     font-size: 25px;
     width: 100%;
     margin-top: 240px;
-    margin-left: 10px;
+    margin-left: 70px;
 }
 
 

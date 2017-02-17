@@ -702,11 +702,15 @@ input
 }
 
 
-#btn_left-F1,#btn_center-F1,#btn_right-F1,#btn_center-FC,#btn_left-FC,#btn_right-FC {
+#btn_left-F1,#btn_center-F1,#btn_right-F1,#btn_center-FC,#btn_left-FC,#btn_right-FC,#btn_payment-FC,#btn_payment-F1 {
 	position: absolute;
 	font-weight: 900;
 	font-size: 70px;
 	text-align: center;
+}
+#btn_payment-F1
+{
+	margin: -92px 0px 0px 40px;
 }
 #btn_center-F1
 {
