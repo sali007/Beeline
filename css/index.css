@@ -149,10 +149,10 @@
 #text_info form input {
     float: left;
     height: 80px;
-    width: 800px;
-    font-weight: bold;
+    width:1000px;
+    font-weight: 900;
     margin: 25px 0px 0px 57px;
-    font-size: 40px;
+    font-size: 50px;
     background-color: #fbb434;
 }
 

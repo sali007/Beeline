@@ -13,7 +13,7 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pr
     height: 190px;
 	top: 20px;
     left: 30px;
-	background: url("../img/ui_item/Beeline_logo.png") no-repeat;
+	/*background: url("../img/ui_item/695.png") no-repeat;*/
 	z-index: 1000;
 
 }

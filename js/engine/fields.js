@@ -614,7 +614,7 @@ CDIFieldChunk = createClass
 	            o = null,
 	            a = [];
 	        if (this._aBlockCfgs.length) {
-	            sContent += this._sHeader.toFormat(" color: #000000; font-size: 25px; font-weight: normal;") + "<br />";
+	            sContent += this._sHeader.toFormat(" color: #000000; font-size: 25px; font-weight: bold;") + "<br />";
 	            sContent +=
 	                '<div style="width: 618px; overflow: hidden; margin-top: 40px">' +
                     '<table cellpadding="0" cellspacing="0" width="100%" border="0">' +
@@ -630,7 +630,7 @@ CDIFieldChunk = createClass
                     ' </tr>' +
                     '</table>' +
                     '</div>';
-	            sContent += this._sFooter.toFormat(" color: #000000; margin-top: 10px;font-size: 20px; font-weight: normal;");
+	            sContent += this._sFooter.toFormat(" color: #000000; margin-top: 10px;font-size: 23px; font-weight: bold;");
 	            insertContent(this.getPlaceId(), sContent);
 	            for (var i = 0; i < this._aBlockCfgs.length; i++) {
 	                var oBlock = new CFieldBlock(

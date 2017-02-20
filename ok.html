@@ -19,6 +19,8 @@
         
      
         var sLang = storage.get("language");
+            var prvId = storage.get("provider");
+            document.getElementById("logo").style.background = "url('img/ui_item/" + prvId + ".png') no-repeat";
 
 
         if(sLang == "F1"){
