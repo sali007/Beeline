@@ -58,7 +58,7 @@
                 storage.put("language", "F1");
             }
             $("main_button").innerHTML  = getStr("main_button");
-            $("main_sum").innerHTML  = getStr("main_sum");
+            //$("main_sum").innerHTML  = getStr("main_sum");
 
         }
 
@@ -108,6 +108,10 @@
 
             attachEventListener('rules', 'click', function () {
                 onButtonClick(6)
+            });
+
+            attachEventListener('logo-main', 'click', function () {
+                onButtonClick(7)
             });
 
         }
@@ -192,6 +196,12 @@
                 case 6:
                     top.location.href = "./guid.html";
                     break;
+
+                case 7:
+                    storage.put("provider", "695");
+                    storage.put("click_new_index", 'true');
+                    location.href = "./provider.html";
+                    break;
             }
         }
 
@@ -272,9 +282,9 @@
         </div>
 
 
-        <div id="sum">
+        <!--<div id="sum">
            <p id="main_sum" name="main_sum"><script type="text/javascript">document.write(getStr("main_sum"));</script></p>
-        </div>
+        </div>-->
         <div id="footer">
 
             <div id="text_info">
