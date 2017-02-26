@@ -571,6 +571,7 @@ CDIFieldChunk = createClass
 	        }
 	        this._bStrip = $bool(oField["strip"]);
 	        this._sName = "";
+			this.lastActionBackSpace = false;
 	        this._sType = "";
 	        this._sDesc = "";
 	        this._sTypeField = "";
@@ -1008,6 +1009,7 @@ CDIFieldChunk = createClass
 	    processValue: function(sValue) {
 	        switch (sValue) {
 	            case "BACKSPACE":
+					this.lastActionBackSpace = true;
 	                if (this.isEmpty()) {
 	                    this._nCurrentBlock = 0;
 	                    this._aBlocks[0].setActive(true);
@@ -1029,6 +1031,16 @@ CDIFieldChunk = createClass
 	                }
 	                break;
 	            default:
+					if(this.lastActionBackSpace && this._aBlocks[this._nCurrentBlock].isFull()) {
+						var nBlock = this._getNextNoFullBlock();
+						if (nBlock == -1) {
+							nBlock = this._getLastNoEmptyBlock();
+						}
+						this._aBlocks[this._nCurrentBlock].setActive(false);
+						this._nCurrentBlock = nBlock;
+						this.lastActionBackSpace = false;
+						this._aBlocks[nBlock].setActive(true);
+					}
 	                this._aBlocks[this._nCurrentBlock].processValue(sValue);
 	        }
 	    },
